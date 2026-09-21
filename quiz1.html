@@ -12,21 +12,55 @@
 
         <h1>📝 Lesson 1 Quiz</h1>
 
-        <h2>What does "Kia ora" mean?</h2>
+        <h2>Question 1</h2>
+        <p>What does "Kia ora" mean?</p>
 
-        <button onclick="checkAnswer('hello')">
-            Hello
-        </button>
+        <button onclick="checkAnswer(1, 'hello')">Hello</button>
+        <button onclick="checkAnswer(1, 'school')">School</button>
+        <button onclick="checkAnswer(1, 'food')">Food</button>
 
-        <button onclick="checkAnswer('school')">
-            School
-        </button>
+        <p id="result1"></p>
 
-        <button onclick="checkAnswer('food')">
-            Food
-        </button>
 
-        <p id="result"></p>
+        <h2>Question 2</h2>
+        <p>What does "Haere rā" mean?</p>
+
+        <button onclick="checkAnswer(2, 'goodbye')">Goodbye</button>
+        <button onclick="checkAnswer(2, 'hello')">Hello</button>
+        <button onclick="checkAnswer(2, 'food')">Food</button>
+
+        <p id="result2"></p>
+
+
+        <h2>Question 3</h2>
+        <p>What does "E noho rā" mean?</p>
+
+        <button onclick="checkAnswer(3, 'goodbye')">Goodbye</button>
+        <button onclick="checkAnswer(3, 'hello')">Hello</button>
+        <button onclick="checkAnswer(3, 'school')">School</button>
+
+        <p id="result3"></p>
+
+
+        <h2>Question 4</h2>
+        <p>What does "Ka kite" mean?</p>
+
+        <button onclick="checkAnswer(4, 'see you')">See you</button>
+        <button onclick="checkAnswer(4, 'hello')">Hello</button>
+        <button onclick="checkAnswer(4, 'food')">Food</button>
+
+        <p id="result4"></p>
+
+
+        <h2>Question 5</h2>
+        <p>Which one means "Hello"?</p>
+
+        <button onclick="checkAnswer(5, 'Kia ora')">Kia ora</button>
+        <button onclick="checkAnswer(5, 'Haere rā')">Haere rā</button>
+        <button onclick="checkAnswer(5, 'Ka kite')">Ka kite</button>
+
+        <p id="result5"></p>
+
 
         <br>
 
@@ -36,13 +70,35 @@
 
     <script>
 
-        function checkAnswer(answer) {
+        function checkAnswer(question, answer) {
 
-            if (answer === "hello") {
-                document.getElementById("result").textContent =
+            let correct = false;
+
+            if (question === 1 && answer === "hello") {
+                correct = true;
+            }
+
+            if (question === 2 && answer === "goodbye") {
+                correct = true;
+            }
+
+            if (question === 3 && answer === "goodbye") {
+                correct = true;
+            }
+
+            if (question === 4 && answer === "see you") {
+                correct = true;
+            }
+
+            if (question === 5 && answer === "Kia ora") {
+                correct = true;
+            }
+
+            if (correct) {
+                document.getElementById("result" + question).textContent =
                     "✅ Ka pai! Correct!";
             } else {
-                document.getElementById("result").textContent =
+                document.getElementById("result" + question).textContent =
                     "❌ Not quite! Try again.";
             }
 
