@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Lesson 1 Quiz</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="app">
+
+        <h1>Lesson 1 Quiz</h1>
+
+        <p>What does <strong>"Kia ora"</strong> mean?</p>
+
+        <button onclick="checkAnswer('hello')">
+            Hello
+        </button>
+
+        <button onclick="checkAnswer('school')">
+            School
+        </button>
+
+        <button onclick="checkAnswer('food')">
+            Food
+        </button>
+
+        <p id="result"></p>
+
+    </div>
+
+    <script>
+
+        function checkAnswer(answer) {
+
+            if (answer === "hello") {
+                document.getElementById("result").textContent =
+                    "✅ Ka pai! Correct!";
+            } else {
+                document.getElementById("result").textContent =
+                    "❌ Not quite! Try again.";
+            }
+
+        }
+
+    </script>
+
+</body>
+
+</html>
