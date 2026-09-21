@@ -9,9 +9,10 @@
 <body>
 
     <div class="app">
-        <p id="score">Score: 0/5</p>
 
         <h1>📝 Lesson 1 Quiz</h1>
+
+        <p id="score">Score: 0/5</p>
 
         <h2>Question 1</h2>
         <p>What does "Kia ora" mean?</p>
@@ -71,6 +72,8 @@
 
     <script>
 
+        let points = 0;
+
         function checkAnswer(question, answer) {
 
             let correct = false;
@@ -96,11 +99,20 @@
             }
 
             if (correct) {
+
+                points++;
+
                 document.getElementById("result" + question).textContent =
                     "✅ Ka pai! Correct!";
+
+                document.getElementById("score").textContent =
+                    "Score: " + points + "/5";
+
             } else {
+
                 document.getElementById("result" + question).textContent =
                     "❌ Not quite! Try again.";
+
             }
 
         }
