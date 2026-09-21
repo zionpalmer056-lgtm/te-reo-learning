@@ -10,17 +10,27 @@
 
     <div class="app">
 
-        <h1>Lesson 1 Quiz</h1>
+        <h1>📝 Lesson 1 Quiz</h1>
 
         <h2>What does "Kia ora" mean?</h2>
 
-        <button onclick="checkAnswer('hello')">Hello</button>
+        <button onclick="checkAnswer('hello')">
+            Hello
+        </button>
 
-        <button onclick="checkAnswer('school')">School</button>
+        <button onclick="checkAnswer('school')">
+            School
+        </button>
 
-        <button onclick="checkAnswer('food')">Food</button>
+        <button onclick="checkAnswer('food')">
+            Food
+        </button>
 
         <p id="result"></p>
+
+        <br>
+
+        <button onclick="goBack()">Back to Lesson</button>
 
     </div>
 
@@ -36,6 +46,10 @@
                     "❌ Not quite! Try again.";
             }
 
+        }
+
+        function goBack() {
+            window.location.href = "lesson1.html";
         }
 
     </script>
