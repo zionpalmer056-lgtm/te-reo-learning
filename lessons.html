@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Lessons - Te Reo Māori</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="app">
+
+        <h1>📚 Lessons</h1>
+
+        <p class="subtitle">
+            Choose a lesson and start learning!
+        </p>
+
+        <div class="word-card">
+
+            <h2>🟢 Lesson 1</h2>
+
+            <p>Ngā Kupu Mihi</p>
+            <p>Greetings</p>
+
+            <button onclick="lessonOne()">
+                Start Lesson
+            </button>
+
+        </div>
+
+        <div class="word-card">
+
+            <h2>🔵 Lesson 2</h2>
+
+            <p>Te Whakamōhio i a Koe</p>
+            <p>Introducing Yourself</p>
+
+            <button onclick="lessonTwo()">
+                Start Lesson
+            </button>
+
+        </div>
+
+        <div class="word-card">
+
+            <h2>🟣 Lesson 3</h2>
+
+            <p>Ngā Tau</p>
+            <p>Numbers</p>
+
+            <button onclick="lessonThree()">
+                Start Lesson
+            </button>
+
+        </div>
+
+        <div class="word-card">
+
+            <h2>🟠 Lesson 4</h2>
+
+            <p>Te Whānau</p>
+            <p>Family</p>
+
+            <button onclick="lessonFour()">
+                Start Lesson
+            </button>
+
+        </div>
+
+        <br>
+
+        <button onclick="goHome()">
+            🏠 Home
+        </button>
+
+    </div>
+
+    <script>
+
+        function lessonOne() {
+            window.location.href = "lesson1.html";
+        }
+
+        function lessonTwo() {
+            window.location.href = "lesson2.html";
+        }
+
+        function lessonThree() {
+            window.location.href = "lesson3.html";
+        }
+
+        function lessonFour() {
+            window.location.href = "lesson4.html";
+        }
+
+        function goHome() {
+            window.location.href = "index.html";
+        }
+
+    </script>
+
+</body>
+
+</html>
