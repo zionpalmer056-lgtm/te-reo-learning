@@ -23,10 +23,10 @@
             <p>Level 1 • Beginner</p>
 
             <div class="progress-bar">
-                <div class="progress"></div>
+                <div class="progress" id="progress"></div>
             </div>
 
-            <p>0% Complete</p>
+            <p id="progressText">0% Complete</p>
 
         </div>
 
@@ -45,7 +45,7 @@
         <br><br>
 
         <button onclick="lessonThree()">
-            🔒 Lesson 3 — Numbers
+            🟣 Lesson 3 — Numbers
         </button>
 
     </div>
@@ -61,8 +61,36 @@
         }
 
         function lessonThree() {
-            alert("🔒 Lesson 3 is coming soon!");
+            window.location.href = "lesson3.html";
         }
+
+        function updateProgress() {
+
+            let completed = 0;
+
+            if (localStorage.getItem("lesson1Complete") === "true") {
+                completed++;
+            }
+
+            if (localStorage.getItem("lesson2Complete") === "true") {
+                completed++;
+            }
+
+            if (localStorage.getItem("lesson3Complete") === "true") {
+                completed++;
+            }
+
+            let percentage = (completed / 3) * 100;
+
+            document.getElementById("progress").style.width =
+                percentage + "%";
+
+            document.getElementById("progressText").textContent =
+                percentage + "% Complete";
+
+        }
+
+        updateProgress();
 
     </script>
 
