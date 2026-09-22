@@ -32,7 +32,7 @@
 
         <h2>📚 Lessons</h2>
 
-        <button onclick="startLearning()">
+        <button onclick="lessonOne()">
             🟢 Lesson 1 — Greetings
         </button>
 
@@ -58,7 +58,7 @@
 
     <script>
 
-        function startLearning() {
+        function lessonOne() {
             window.location.href = "lesson1.html";
         }
 
@@ -90,7 +90,11 @@
                 completed++;
             }
 
-            let percentage = Math.round((completed / 3) * 100);
+            if (localStorage.getItem("lesson4Complete") === "true") {
+                completed++;
+            }
+
+            let percentage = Math.round((completed / 4) * 100);
 
             document.getElementById("progress").style.width =
                 percentage + "%";
