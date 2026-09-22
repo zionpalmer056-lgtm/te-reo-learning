@@ -80,7 +80,7 @@
                 completed++;
             }
 
-            let percentage = (completed / 3) * 100;
+            let percentage = Math.round((completed / 3) * 100);
 
             document.getElementById("progress").style.width =
                 percentage + "%";
