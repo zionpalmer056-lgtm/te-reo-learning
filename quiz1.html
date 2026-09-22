@@ -109,12 +109,16 @@
                 document.getElementById("score").textContent =
                     "Score: " + points + "/5";
 
-      if (points === 5) {
+     if (points === 5) {
 
     document.getElementById("complete").textContent =
-        "🎉 Quiz Complete! You got 5/5!";
+        "🎉 Quiz Complete! You got 5/5! 🏆";
 
     localStorage.setItem("lesson1Complete", "true");
+
+    setTimeout(function() {
+        alert("🎉 Ka pai! You completed Lesson 1!");
+    }, 200);
 
 }
 
