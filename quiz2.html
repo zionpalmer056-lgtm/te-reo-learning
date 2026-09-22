@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Lesson 2 Quiz</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="app">
+
+        <h1>📝 Lesson 2 Quiz</h1>
+
+        <p id="score">Score: 0/5</p>
+        <p id="complete"></p>
+
+        <h2>Question 1</h2>
+        <p>What does "Ko wai koe?" mean?</p>
+
+        <button onclick="checkAnswer(1, 'who')">Who are you?</button>
+        <button onclick="checkAnswer(1, 'name')">What is your name?</button>
+        <button onclick="checkAnswer(1, 'where')">Where are you from?</button>
+
+        <p id="result1"></p>
+
+
+        <h2>Question 2</h2>
+        <p>What does "Ko ___ ahau" mean?</p>
+
+        <button onclick="checkAnswer(2, 'i am')">I am ___</button>
+        <button onclick="checkAnswer(2, 'hello')">Hello</button>
+        <button onclick="checkAnswer(2, 'goodbye')">Goodbye</button>
+
+        <p id="result2"></p>
+
+
+        <h2>Question 3</h2>
+        <p>What does "Ko ___ tōku ingoa" mean?</p>
+
+        <button onclick="checkAnswer(3, 'my name')">My name is ___</button>
+        <button onclick="checkAnswer(3, 'who')">Who are you?</button>
+        <button onclick="checkAnswer(3, 'where')">Where are you from?</button>
+
+        <p id="result3"></p>
+
+
+        <h2>Question 4</h2>
+        <p>What does "Nō hea koe?" mean?</p>
+
+        <button onclick="checkAnswer(4, 'where')">Where are you from?</button>
+        <button onclick="checkAnswer(4, 'who')">Who are you?</button>
+        <button onclick="checkAnswer(4, 'name')">What is your name?</button>
+
+        <p id="result4"></p>
+
+
+        <h2>Question 5</h2>
+        <p>What does "Nō ___ ahau" mean?</p>
+
+        <button onclick="checkAnswer(5, 'from')">I am from ___</button>
+        <button onclick="checkAnswer(5, 'hello')">Hello</button>
+        <button onclick="checkAnswer(5, 'name')">My name is ___</button>
+
+        <p id="result5"></p>
+
+
+        <br>
+
+        <button onclick="goBack()">Back to Lesson</button>
+
+    </div>
+
+    <script>
+
+        let points = 0;
+
+        function checkAnswer(question, answer) {
+
+            let correct = false;
+
+            if (question === 1 && answer === "who") {
+                correct = true;
+            }
+
+            if (question === 2 && answer === "i am") {
+                correct = true;
+            }
+
+            if (question === 3 && answer === "my name") {
+                correct = true;
+            }
+
+            if (question === 4 && answer === "where") {
+                correct = true;
+            }
+
+            if (question === 5 && answer === "from") {
+                correct = true;
+            }
+
+            if (correct) {
+
+                points++;
+
+                document.getElementById("result" + question).textContent =
+                    "✅ Ka pai! Correct!";
+
+                document.getElementById("score").textContent =
+                    "Score: " + points + "/5";
+
+                if (points === 5) {
+                    document.getElementById("complete").textContent =
+                        "🎉 Quiz Complete! You got 5/5!";
+                }
+
+            } else {
+
+                document.getElementById("result" + question).textContent =
+                    "❌ Not quite! Try again.";
+
+            }
+
+        }
+
+        function goBack() {
+            window.location.href = "lesson2.html";
+        }
+
+    </script>
+
+</body>
+
+</html>
