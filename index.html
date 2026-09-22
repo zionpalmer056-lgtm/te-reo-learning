@@ -30,27 +30,40 @@
 
         </div>
 
+        <h2>📚 Lessons</h2>
+
         <button onclick="startLearning()">
-            Start Learning
+            🟢 Lesson 1 — Greetings
         </button>
 
         <br><br>
 
-<button onclick="lessonTwo()">
-    Lesson 2
-</button>
-        
+        <button onclick="lessonTwo()">
+            🔵 Lesson 2 — Introducing Yourself
+        </button>
+
+        <br><br>
+
+        <button onclick="lessonThree()">
+            🔒 Lesson 3 — Numbers
+        </button>
+
     </div>
 
     <script>
+
         function startLearning() {
             window.location.href = "lesson1.html";
         }
 
         function lessonTwo() {
-    window.location.href = "lesson2.html";
-}
-        
+            window.location.href = "lesson2.html";
+        }
+
+        function lessonThree() {
+            alert("🔒 Lesson 3 is coming soon!");
+        }
+
     </script>
 
 </body>
