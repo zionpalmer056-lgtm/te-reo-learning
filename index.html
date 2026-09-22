@@ -30,48 +30,26 @@
 
         </div>
 
-        <h2>📚 Lessons</h2>
-
-        <button onclick="lessonOne()">
-            🟢 Lesson 1 — Greetings
+        <button onclick="startLearning()">
+            ▶️ Start Learning
         </button>
 
         <br><br>
 
-        <button onclick="lessonTwo()">
-            🔵 Lesson 2 — Introducing Yourself
-        </button>
-
-        <br><br>
-
-        <button onclick="lessonThree()">
-            🟣 Lesson 3 — Numbers
-        </button>
-
-        <br><br>
-
-        <button onclick="lessonFour()">
-            🟠 Lesson 4 — Whānau
+        <button onclick="openLessons()">
+            📚 View All Lessons
         </button>
 
     </div>
 
     <script>
 
-        function lessonOne() {
+        function startLearning() {
             window.location.href = "lesson1.html";
         }
 
-        function lessonTwo() {
-            window.location.href = "lesson2.html";
-        }
-
-        function lessonThree() {
-            window.location.href = "lesson3.html";
-        }
-
-        function lessonFour() {
-            window.location.href = "lesson4.html";
+        function openLessons() {
+            window.location.href = "lessons.html";
         }
 
         function updateProgress() {
