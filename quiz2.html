@@ -109,10 +109,14 @@
                 document.getElementById("score").textContent =
                     "Score: " + points + "/5";
 
-                if (points === 5) {
-                    document.getElementById("complete").textContent =
-                        "🎉 Quiz Complete! You got 5/5!";
-                }
+              if (points === 5) {
+
+    document.getElementById("complete").textContent =
+        "🎉 Quiz Complete! You got 5/5!";
+
+    localStorage.setItem("lesson2Complete", "true");
+
+}
 
             } else {
 
