@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Lesson 1 - Greetings</title>
+    <title>Lessons - Te Reo Māori</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -10,49 +10,144 @@
 
     <div class="app">
 
-       <h1>Lesson 1</h1>
+        <h1>📚 Lessons</h1>
 
-        <h2>Ngā Kupu Mihi</h2>
-
-        <p class="subtitle">Greetings</p>
+        <p class="subtitle">
+            Choose a lesson and start learning!
+        </p>
 
         <div class="word-card">
-            <h2>Kia ora</h2>
-            <p>Hello / Hi</p>
+
+            <h2>🟢 Lesson 1</h2>
+
+            <p>Ngā Kupu Mihi</p>
+            <p>Greetings</p>
+
+            <p id="lesson1Status"></p>
+
+            <button onclick="lessonOne()">
+                Start Lesson
+            </button>
+
         </div>
 
         <div class="word-card">
-            <h2>Haere rā</h2>
-            <p>Goodbye to someone who is leaving</p>
+
+            <h2>🔵 Lesson 2</h2>
+
+            <p>Te Whakamōhio i a Koe</p>
+            <p>Introducing Yourself</p>
+
+            <p id="lesson2Status"></p>
+
+            <button onclick="lessonTwo()">
+                Start Lesson
+            </button>
+
         </div>
 
         <div class="word-card">
-            <h2>E noho rā</h2>
-            <p>Goodbye to someone who is staying</p>
+
+            <h2>🟣 Lesson 3</h2>
+
+            <p>Ngā Tau</p>
+            <p>Numbers</p>
+
+            <p id="lesson3Status"></p>
+
+            <button onclick="lessonThree()">
+                Start Lesson
+            </button>
+
         </div>
 
         <div class="word-card">
-            <h2>Ka kite</h2>
-            <p>See you</p>
+
+            <h2>🟠 Lesson 4</h2>
+
+            <p>Te Whānau</p>
+            <p>Family</p>
+
+            <p id="lesson4Status"></p>
+
+            <button onclick="lessonFour()">
+                Start Lesson
+            </button>
+
         </div>
 
         <br>
 
-        <button onclick="goHome()">Home</button>
-
-        <button onclick="startQuiz()">Take Quiz</button>
+        <button onclick="goHome()">
+            🏠 Home
+        </button>
 
     </div>
 
     <script>
 
+        function lessonOne() {
+            window.location.href = "lesson1.html";
+        }
+
+        function lessonTwo() {
+            window.location.href = "lesson2.html";
+        }
+
+        function lessonThree() {
+            window.location.href = "lesson3.html";
+        }
+
+        function lessonFour() {
+            window.location.href = "lesson4.html";
+        }
+
         function goHome() {
             window.location.href = "index.html";
         }
 
-        function startQuiz() {
-            window.location.href = "quiz1.html";
+
+        function updateLessonStatus() {
+
+            if (localStorage.getItem("lesson1Complete") === "true") {
+                document.getElementById("lesson1Status").textContent =
+                    "✅ Complete!";
+            } else {
+                document.getElementById("lesson1Status").textContent =
+                    "📖 Not completed yet";
+            }
+
+
+            if (localStorage.getItem("lesson2Complete") === "true") {
+                document.getElementById("lesson2Status").textContent =
+                    "✅ Complete!";
+            } else {
+                document.getElementById("lesson2Status").textContent =
+                    "📖 Not completed yet";
+            }
+
+
+            if (localStorage.getItem("lesson3Complete") === "true") {
+                document.getElementById("lesson3Status").textContent =
+                    "✅ Complete!";
+            } else {
+                document.getElementById("lesson3Status").textContent =
+                    "📖 Not completed yet";
+            }
+
+
+            if (localStorage.getItem("lesson4Complete") === "true") {
+                document.getElementById("lesson4Status").textContent =
+                    "✅ Complete!";
+            } else {
+                document.getElementById("lesson4Status").textContent =
+                    "📖 Not completed yet";
+            }
+
         }
+
+
+        updateLessonStatus();
 
     </script>
 
