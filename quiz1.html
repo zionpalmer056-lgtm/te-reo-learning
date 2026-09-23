@@ -18,52 +18,47 @@
         <h2>Question 1</h2>
         <p>What does "Kia ora" mean?</p>
 
-        <button onclick="checkAnswer(1, 'hello')">Hello</button>
-        <button onclick="checkAnswer(1, 'school')">School</button>
-        <button onclick="checkAnswer(1, 'food')">Food</button>
+        <button onclick="checkAnswer(1, 'hello', this)">Hello</button>
+        <button onclick="checkAnswer(1, 'school', this)">School</button>
+        <button onclick="checkAnswer(1, 'food', this)">Food</button>
 
         <p id="result1"></p>
-
 
         <h2>Question 2</h2>
         <p>What does "Haere rā" mean?</p>
 
-        <button onclick="checkAnswer(2, 'goodbye')">Goodbye</button>
-        <button onclick="checkAnswer(2, 'hello')">Hello</button>
-        <button onclick="checkAnswer(2, 'food')">Food</button>
+        <button onclick="checkAnswer(2, 'goodbye', this)">Goodbye</button>
+        <button onclick="checkAnswer(2, 'hello', this)">Hello</button>
+        <button onclick="checkAnswer(2, 'food', this)">Food</button>
 
         <p id="result2"></p>
-
 
         <h2>Question 3</h2>
         <p>What does "E noho rā" mean?</p>
 
-        <button onclick="checkAnswer(3, 'goodbye')">Goodbye</button>
-        <button onclick="checkAnswer(3, 'hello')">Hello</button>
-        <button onclick="checkAnswer(3, 'school')">School</button>
+        <button onclick="checkAnswer(3, 'goodbye', this)">Goodbye</button>
+        <button onclick="checkAnswer(3, 'hello', this)">Hello</button>
+        <button onclick="checkAnswer(3, 'school', this)">School</button>
 
         <p id="result3"></p>
-
 
         <h2>Question 4</h2>
         <p>What does "Ka kite" mean?</p>
 
-        <button onclick="checkAnswer(4, 'see you')">See you</button>
-        <button onclick="checkAnswer(4, 'hello')">Hello</button>
-        <button onclick="checkAnswer(4, 'food')">Food</button>
+        <button onclick="checkAnswer(4, 'see you', this)">See you</button>
+        <button onclick="checkAnswer(4, 'hello', this)">Hello</button>
+        <button onclick="checkAnswer(4, 'food', this)">Food</button>
 
         <p id="result4"></p>
-
 
         <h2>Question 5</h2>
         <p>Which one means "Hello"?</p>
 
-        <button onclick="checkAnswer(5, 'Kia ora')">Kia ora</button>
-        <button onclick="checkAnswer(5, 'Haere rā')">Haere rā</button>
-        <button onclick="checkAnswer(5, 'Ka kite')">Ka kite</button>
+        <button onclick="checkAnswer(5, 'Kia ora', this)">Kia ora</button>
+        <button onclick="checkAnswer(5, 'Haere rā', this)">Haere rā</button>
+        <button onclick="checkAnswer(5, 'Ka kite', this)">Ka kite</button>
 
         <p id="result5"></p>
-
 
         <br>
 
@@ -75,7 +70,15 @@
 
         let points = 0;
 
-        function checkAnswer(question, answer) {
+        let answered = [false, false, false, false, false];
+
+        function checkAnswer(question, answer, button) {
+
+            if (answered[question - 1]) {
+                return;
+            }
+
+            answered[question - 1] = true;
 
             let correct = false;
 
@@ -99,6 +102,12 @@
                 correct = true;
             }
 
+            let buttons = button.parentElement.querySelectorAll("button");
+
+            buttons.forEach(function(btn) {
+                btn.disabled = true;
+            });
+
             if (correct) {
 
                 points++;
@@ -106,26 +115,30 @@
                 document.getElementById("result" + question).textContent =
                     "✅ Ka pai! Correct!";
 
-                document.getElementById("score").textContent =
-                    "Score: " + points + "/5";
-
-     if (points === 5) {
-
-    document.getElementById("complete").textContent =
-        "🎉 Quiz Complete! You got 5/5! 🏆";
-
-    localStorage.setItem("lesson1Complete", "true");
-
-    setTimeout(function() {
-        alert("🎉 Ka pai! You completed Lesson 1!");
-    }, 200);
-
-}
-
             } else {
 
                 document.getElementById("result" + question).textContent =
-                    "❌ Not quite! Try again.";
+                    "❌ Not quite!";
+
+            }
+
+            document.getElementById("score").textContent =
+                "Score: " + points + "/5";
+
+            if (answered.every(Boolean)) {
+
+                document.getElementById("complete").textContent =
+                    "🎉 Quiz Complete! You got " + points + "/5! 🏆";
+
+                if (points === 5) {
+
+                    localStorage.setItem("lesson1Complete", "true");
+
+                    setTimeout(function() {
+                        alert("🎉 Ka pai! You completed Lesson 1!");
+                    }, 200);
+
+                }
 
             }
 
