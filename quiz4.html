@@ -18,45 +18,45 @@
         <h2>Question 1</h2>
         <p>What does "Whānau" mean?</p>
 
-        <button onclick="checkAnswer(1, 'family')">Family</button>
-        <button onclick="checkAnswer(1, 'father')">Father</button>
-        <button onclick="checkAnswer(1, 'son')">Son</button>
+        <button onclick="checkAnswer(1, 'family', this)">Family</button>
+        <button onclick="checkAnswer(1, 'father', this)">Father</button>
+        <button onclick="checkAnswer(1, 'son', this)">Son</button>
 
         <p id="result1"></p>
 
         <h2>Question 2</h2>
         <p>What does "Māmā" mean?</p>
 
-        <button onclick="checkAnswer(2, 'mother')">Mother</button>
-        <button onclick="checkAnswer(2, 'father')">Father</button>
-        <button onclick="checkAnswer(2, 'daughter')">Daughter</button>
+        <button onclick="checkAnswer(2, 'mother', this)">Mother</button>
+        <button onclick="checkAnswer(2, 'father', this)">Father</button>
+        <button onclick="checkAnswer(2, 'daughter', this)">Daughter</button>
 
         <p id="result2"></p>
 
         <h2>Question 3</h2>
         <p>What does "Pāpā" mean?</p>
 
-        <button onclick="checkAnswer(3, 'father')">Father</button>
-        <button onclick="checkAnswer(3, 'mother')">Mother</button>
-        <button onclick="checkAnswer(3, 'son')">Son</button>
+        <button onclick="checkAnswer(3, 'father', this)">Father</button>
+        <button onclick="checkAnswer(3, 'mother', this)">Mother</button>
+        <button onclick="checkAnswer(3, 'son', this)">Son</button>
 
         <p id="result3"></p>
 
         <h2>Question 4</h2>
         <p>What does "Tama" mean?</p>
 
-        <button onclick="checkAnswer(4, 'daughter')">Daughter</button>
-        <button onclick="checkAnswer(4, 'son')">Son</button>
-        <button onclick="checkAnswer(4, 'family')">Family</button>
+        <button onclick="checkAnswer(4, 'daughter', this)">Daughter</button>
+        <button onclick="checkAnswer(4, 'son', this)">Son</button>
+        <button onclick="checkAnswer(4, 'family', this)">Family</button>
 
         <p id="result4"></p>
 
         <h2>Question 5</h2>
         <p>What does "Tamāhine" mean?</p>
 
-        <button onclick="checkAnswer(5, 'daughter')">Daughter</button>
-        <button onclick="checkAnswer(5, 'mother')">Mother</button>
-        <button onclick="checkAnswer(5, 'father')">Father</button>
+        <button onclick="checkAnswer(5, 'daughter', this)">Daughter</button>
+        <button onclick="checkAnswer(5, 'mother', this)">Mother</button>
+        <button onclick="checkAnswer(5, 'father', this)">Father</button>
 
         <p id="result5"></p>
 
@@ -70,7 +70,15 @@
 
         let points = 0;
 
-        function checkAnswer(question, answer) {
+        let answered = [false, false, false, false, false];
+
+        function checkAnswer(question, answer, button) {
+
+            if (answered[question - 1]) {
+                return;
+            }
+
+            answered[question - 1] = true;
 
             let correct = false;
 
@@ -94,6 +102,12 @@
                 correct = true;
             }
 
+            let buttons = button.parentElement.querySelectorAll("button");
+
+            buttons.forEach(function(btn) {
+                btn.disabled = true;
+            });
+
             if (correct) {
 
                 points++;
@@ -101,13 +115,22 @@
                 document.getElementById("result" + question).textContent =
                     "✅ Ka pai! Correct!";
 
-                document.getElementById("score").textContent =
-                    "Score: " + points + "/5";
+            } else {
+
+                document.getElementById("result" + question).textContent =
+                    "❌ Not quite!";
+
+            }
+
+            document.getElementById("score").textContent =
+                "Score: " + points + "/5";
+
+            if (answered.every(Boolean)) {
+
+                document.getElementById("complete").textContent =
+                    "🎉 Quiz Complete! You got " + points + "/5! 🏆";
 
                 if (points === 5) {
-
-                    document.getElementById("complete").textContent =
-                        "🎉 Quiz Complete! You got 5/5! 🏆";
 
                     localStorage.setItem("lesson4Complete", "true");
 
@@ -116,11 +139,6 @@
                     }, 200);
 
                 }
-
-            } else {
-
-                document.getElementById("result" + question).textContent =
-                    "❌ Not quite! Try again.";
 
             }
 
