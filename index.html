@@ -20,7 +20,11 @@
 
             <h2>Your Progress</h2>
 
-            <p>Level 1 • Beginner</p>
+            <p id="level">Level 1 • Beginner</p>
+
+            <p>
+                ⭐ <span id="xp">0</span> XP
+            </p>
 
             <div class="progress-bar">
                 <div class="progress" id="progress"></div>
@@ -42,15 +46,18 @@
 
     </div>
 
+
     <script>
 
         function startLearning() {
             window.location.href = "lesson1.html";
         }
 
+
         function openLessons() {
             window.location.href = "lessons.html";
         }
+
 
         function updateProgress() {
 
@@ -72,15 +79,61 @@
                 completed++;
             }
 
+
             let percentage = Math.round((completed / 4) * 100);
+
+            let xp = completed * 100;
+
 
             document.getElementById("progress").style.width =
                 percentage + "%";
 
+
             document.getElementById("progressText").textContent =
                 percentage + "% Complete";
 
+
+            document.getElementById("xp").textContent =
+                xp;
+
+
+            if (completed === 0) {
+
+                document.getElementById("level").textContent =
+                    "Level 1 • Beginner";
+
+            }
+
+            else if (completed === 1) {
+
+                document.getElementById("level").textContent =
+                    "Level 2 • Te Reo Learner";
+
+            }
+
+            else if (completed === 2) {
+
+                document.getElementById("level").textContent =
+                    "Level 3 • Kaipānui";
+
+            }
+
+            else if (completed === 3) {
+
+                document.getElementById("level").textContent =
+                    "Level 4 • Advanced Beginner";
+
+            }
+
+            else if (completed === 4) {
+
+                document.getElementById("level").textContent =
+                    "Level 5 • Te Reo Champion 🏆";
+
+            }
+
         }
+
 
         updateProgress();
 
