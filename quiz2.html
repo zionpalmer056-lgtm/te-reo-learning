@@ -18,52 +18,47 @@
         <h2>Question 1</h2>
         <p>What does "Ko wai koe?" mean?</p>
 
-        <button onclick="checkAnswer(1, 'who')">Who are you?</button>
-        <button onclick="checkAnswer(1, 'name')">What is your name?</button>
-        <button onclick="checkAnswer(1, 'where')">Where are you from?</button>
+        <button onclick="checkAnswer(1, 'who', this)">Who are you?</button>
+        <button onclick="checkAnswer(1, 'name', this)">What is your name?</button>
+        <button onclick="checkAnswer(1, 'where', this)">Where are you from?</button>
 
         <p id="result1"></p>
-
 
         <h2>Question 2</h2>
         <p>What does "Ko ___ ahau" mean?</p>
 
-        <button onclick="checkAnswer(2, 'i am')">I am ___</button>
-        <button onclick="checkAnswer(2, 'hello')">Hello</button>
-        <button onclick="checkAnswer(2, 'goodbye')">Goodbye</button>
+        <button onclick="checkAnswer(2, 'i am', this)">I am ___</button>
+        <button onclick="checkAnswer(2, 'hello', this)">Hello</button>
+        <button onclick="checkAnswer(2, 'goodbye', this)">Goodbye</button>
 
         <p id="result2"></p>
-
 
         <h2>Question 3</h2>
         <p>What does "Ko ___ tōku ingoa" mean?</p>
 
-        <button onclick="checkAnswer(3, 'my name')">My name is ___</button>
-        <button onclick="checkAnswer(3, 'who')">Who are you?</button>
-        <button onclick="checkAnswer(3, 'where')">Where are you from?</button>
+        <button onclick="checkAnswer(3, 'my name', this)">My name is ___</button>
+        <button onclick="checkAnswer(3, 'who', this)">Who are you?</button>
+        <button onclick="checkAnswer(3, 'where', this)">Where are you from?</button>
 
         <p id="result3"></p>
-
 
         <h2>Question 4</h2>
         <p>What does "Nō hea koe?" mean?</p>
 
-        <button onclick="checkAnswer(4, 'where')">Where are you from?</button>
-        <button onclick="checkAnswer(4, 'who')">Who are you?</button>
-        <button onclick="checkAnswer(4, 'name')">What is your name?</button>
+        <button onclick="checkAnswer(4, 'where', this)">Where are you from?</button>
+        <button onclick="checkAnswer(4, 'who', this)">Who are you?</button>
+        <button onclick="checkAnswer(4, 'name', this)">What is your name?</button>
 
         <p id="result4"></p>
-
 
         <h2>Question 5</h2>
         <p>What does "Nō ___ ahau" mean?</p>
 
-        <button onclick="checkAnswer(5, 'from')">I am from ___</button>
-        <button onclick="checkAnswer(5, 'hello')">Hello</button>
-        <button onclick="checkAnswer(5, 'name')">My name is ___</button>
+        <button onclick="checkAnswer(5, 'from', this)">I am from ___</button>
+        <button onclick="checkAnswer(5, 'hello', this)">Hello</button>
+        <button onclick="checkAnswer(5, 'name', this)">My name is ___</button>
 
         <p id="result5"></p>
-
 
         <br>
 
@@ -75,7 +70,15 @@
 
         let points = 0;
 
-        function checkAnswer(question, answer) {
+        let answered = [false, false, false, false, false];
+
+        function checkAnswer(question, answer, button) {
+
+            if (answered[question - 1]) {
+                return;
+            }
+
+            answered[question - 1] = true;
 
             let correct = false;
 
@@ -99,6 +102,12 @@
                 correct = true;
             }
 
+            let buttons = button.parentElement.querySelectorAll("button");
+
+            buttons.forEach(function(btn) {
+                btn.disabled = true;
+            });
+
             if (correct) {
 
                 points++;
@@ -106,26 +115,30 @@
                 document.getElementById("result" + question).textContent =
                     "✅ Ka pai! Correct!";
 
-                document.getElementById("score").textContent =
-                    "Score: " + points + "/5";
-
-        if (points === 5) {
-
-    document.getElementById("complete").textContent =
-        "🎉 Quiz Complete! You got 5/5! 🏆";
-
-    localStorage.setItem("lesson2Complete", "true");
-
-    setTimeout(function() {
-        alert("🎉 Ka pai! You completed Lesson 2!");
-    }, 200);
-
-}
-
             } else {
 
                 document.getElementById("result" + question).textContent =
-                    "❌ Not quite! Try again.";
+                    "❌ Not quite!";
+
+            }
+
+            document.getElementById("score").textContent =
+                "Score: " + points + "/5";
+
+            if (answered.every(Boolean)) {
+
+                document.getElementById("complete").textContent =
+                    "🎉 Quiz Complete! You got " + points + "/5! 🏆";
+
+                if (points === 5) {
+
+                    localStorage.setItem("lesson2Complete", "true");
+
+                    setTimeout(function() {
+                        alert("🎉 Ka pai! You completed Lesson 2!");
+                    }, 200);
+
+                }
 
             }
 
