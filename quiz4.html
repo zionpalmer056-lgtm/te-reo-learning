@@ -15,127 +15,239 @@
         <p id="score">Score: 0/5</p>
         <p id="complete"></p>
 
-        <h2>Question 1</h2>
-        <p>What does "Whānau" mean?</p>
 
-        <button onclick="checkAnswer(1, 'family', this)">Family</button>
-        <button onclick="checkAnswer(1, 'father', this)">Father</button>
-        <button onclick="checkAnswer(1, 'son', this)">Son</button>
+        <div class="word-card">
 
-        <p id="result1"></p>
+            <h2>Question 1</h2>
 
-        <h2>Question 2</h2>
-        <p>What does "Māmā" mean?</p>
+            <p>What does "Whānau" mean?</p>
 
-        <button onclick="checkAnswer(2, 'mother', this)">Mother</button>
-        <button onclick="checkAnswer(2, 'father', this)">Father</button>
-        <button onclick="checkAnswer(2, 'daughter', this)">Daughter</button>
+            <button onclick="checkAnswer(1, 'family', this)">
+                Family
+            </button>
 
-        <p id="result2"></p>
+            <button onclick="checkAnswer(1, 'father', this)">
+                Father
+            </button>
 
-        <h2>Question 3</h2>
-        <p>What does "Pāpā" mean?</p>
+            <button onclick="checkAnswer(1, 'son', this)">
+                Son
+            </button>
 
-        <button onclick="checkAnswer(3, 'father', this)">Father</button>
-        <button onclick="checkAnswer(3, 'mother', this)">Mother</button>
-        <button onclick="checkAnswer(3, 'son', this)">Son</button>
+            <p id="result1"></p>
 
-        <p id="result3"></p>
+        </div>
 
-        <h2>Question 4</h2>
-        <p>What does "Tama" mean?</p>
 
-        <button onclick="checkAnswer(4, 'daughter', this)">Daughter</button>
-        <button onclick="checkAnswer(4, 'son', this)">Son</button>
-        <button onclick="checkAnswer(4, 'family', this)">Family</button>
+        <div class="word-card">
 
-        <p id="result4"></p>
+            <h2>Question 2</h2>
 
-        <h2>Question 5</h2>
-        <p>What does "Tamāhine" mean?</p>
+            <p>What does "Māmā" mean?</p>
 
-        <button onclick="checkAnswer(5, 'daughter', this)">Daughter</button>
-        <button onclick="checkAnswer(5, 'mother', this)">Mother</button>
-        <button onclick="checkAnswer(5, 'father', this)">Father</button>
+            <button onclick="checkAnswer(2, 'mother', this)">
+                Mother
+            </button>
 
-        <p id="result5"></p>
+            <button onclick="checkAnswer(2, 'father', this)">
+                Father
+            </button>
+
+            <button onclick="checkAnswer(2, 'daughter', this)">
+                Daughter
+            </button>
+
+            <p id="result2"></p>
+
+        </div>
+
+
+        <div class="word-card">
+
+            <h2>Question 3</h2>
+
+            <p>What does "Pāpā" mean?</p>
+
+            <button onclick="checkAnswer(3, 'father', this)">
+                Father
+            </button>
+
+            <button onclick="checkAnswer(3, 'mother', this)">
+                Mother
+            </button>
+
+            <button onclick="checkAnswer(3, 'son', this)">
+                Son
+            </button>
+
+            <p id="result3"></p>
+
+        </div>
+
+
+        <div class="word-card">
+
+            <h2>Question 4</h2>
+
+            <p>What does "Tama" mean?</p>
+
+            <button onclick="checkAnswer(4, 'daughter', this)">
+                Daughter
+            </button>
+
+            <button onclick="checkAnswer(4, 'son', this)">
+                Son
+            </button>
+
+            <button onclick="checkAnswer(4, 'family', this)">
+                Family
+            </button>
+
+            <p id="result4"></p>
+
+        </div>
+
+
+        <div class="word-card">
+
+            <h2>Question 5</h2>
+
+            <p>What does "Tamāhine" mean?</p>
+
+            <button onclick="checkAnswer(5, 'daughter', this)">
+                Daughter
+            </button>
+
+            <button onclick="checkAnswer(5, 'mother', this)">
+                Mother
+            </button>
+
+            <button onclick="checkAnswer(5, 'father', this)">
+                Father
+            </button>
+
+            <p id="result5"></p>
+
+        </div>
+
 
         <br>
 
-        <button onclick="goBack()">Back to Lesson</button>
+        <button onclick="goBack()">
+            Back to Lesson
+        </button>
 
     </div>
+
 
     <script>
 
         let points = 0;
 
-        let answered = [false, false, false, false, false];
+        let answered = [
+            false,
+            false,
+            false,
+            false,
+            false
+        ];
+
 
         function checkAnswer(question, answer, button) {
 
+            // Stop the same question being answered twice
             if (answered[question - 1]) {
                 return;
             }
 
+
             answered[question - 1] = true;
 
+
             let correct = false;
+
 
             if (question === 1 && answer === "family") {
                 correct = true;
             }
 
+
             if (question === 2 && answer === "mother") {
                 correct = true;
             }
+
 
             if (question === 3 && answer === "father") {
                 correct = true;
             }
 
+
             if (question === 4 && answer === "son") {
                 correct = true;
             }
+
 
             if (question === 5 && answer === "daughter") {
                 correct = true;
             }
 
-            let buttons = button.parentElement.querySelectorAll("button");
+
+            // Only disable buttons inside THIS question
+            let buttons =
+                button.parentElement.querySelectorAll("button");
+
 
             buttons.forEach(function(btn) {
                 btn.disabled = true;
             });
 
+
             if (correct) {
 
                 points++;
 
-                document.getElementById("result" + question).textContent =
+                document.getElementById(
+                    "result" + question
+                ).textContent =
                     "✅ Ka pai! Correct!";
 
             } else {
 
-                document.getElementById("result" + question).textContent =
+                document.getElementById(
+                    "result" + question
+                ).textContent =
                     "❌ Not quite!";
 
             }
 
+
             document.getElementById("score").textContent =
                 "Score: " + points + "/5";
 
+
+            // Check if every question has been answered
             if (answered.every(Boolean)) {
 
                 document.getElementById("complete").textContent =
-                    "🎉 Quiz Complete! You got " + points + "/5! 🏆";
+                    "🎉 Quiz Complete! You got " +
+                    points +
+                    "/5! 🏆";
+
 
                 if (points === 5) {
 
-                    localStorage.setItem("lesson4Complete", "true");
+                    localStorage.setItem(
+                        "lesson4Complete",
+                        "true"
+                    );
+
 
                     setTimeout(function() {
-                        alert("🎉 Ka pai! You completed Lesson 4!");
+
+                        alert(
+                            "🎉 Ka pai! You completed Lesson 4!"
+                        );
+
                     }, 200);
 
                 }
@@ -144,8 +256,12 @@
 
         }
 
+
         function goBack() {
-            window.location.href = "lesson4.html";
+
+            window.location.href =
+                "lesson4.html";
+
         }
 
     </script>
