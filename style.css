@@ -28,7 +28,8 @@ p {
 
 .subtitle {
     margin-bottom: 35px;
-    color: #555555;
+    color: white;
+    font-weight: bold;
 }
 
 .progress-box {
