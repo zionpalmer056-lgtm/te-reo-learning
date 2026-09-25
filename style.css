@@ -1,18 +1,8 @@
+```css
 body {
     font-family: Arial, sans-serif;
     text-align: center;
     background-color: #111111;
-    background-image:
-        linear-gradient(45deg, #8b0000 25%, transparent 25%),
-        linear-gradient(-45deg, #8b0000 25%, transparent 25%),
-        linear-gradient(45deg, transparent 75%, #8b0000 75%),
-        linear-gradient(-45deg, transparent 75%, #8b0000 75%);
-    background-size: 40px 40px;
-    background-position:
-        0 0,
-        0 20px,
-        20px -20px,
-        -20px 0px;
     padding: 40px 20px;
     margin: 0;
 }
@@ -38,7 +28,7 @@ p {
 
 .subtitle {
     margin-bottom: 35px;
-    color: #333333;
+    color: #555555;
 }
 
 .progress-box {
@@ -71,37 +61,5 @@ button {
     border-radius: 12px;
     cursor: pointer;
     background-color: #111111;
-    color: white;
-    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
-    margin: 5px;
-    transition: 0.2s;
-}
-
-button:hover {
-    transform: scale(1.05);
-    background-color: #8b0000;
-}
-
-button:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-    transform: none;
-}
-
-.word-card {
-    background-color: white;
-    padding: 20px;
-    margin: 20px 0;
-    border-radius: 18px;
-    border-left: 8px solid #8b0000;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-}
-
-.word-card h2 {
-    font-size: 28px;
-    margin-bottom: 10px;
-}
-
-.word-card p {
-    color: #333333;
-}
+    color: whit
+```
