@@ -1,0 +1,95 @@
+/* Māori-inspired decorative theme */
+
+body {
+    background-color: #111111;
+
+    background-image:
+        radial-gradient(
+            ellipse at 20% 20%,
+            transparent 0,
+            transparent 12px,
+            #8b0000 13px,
+            #8b0000 17px,
+            transparent 18px
+        ),
+        radial-gradient(
+            ellipse at 80% 80%,
+            transparent 0,
+            transparent 12px,
+            #8b0000 13px,
+            #8b0000 17px,
+            transparent 18px
+        );
+
+    background-size: 70px 70px;
+    background-position: 0 0, 35px 35px;
+}
+
+
+/* Decorative border around the app */
+
+.app {
+    border: 4px solid #8b0000;
+    border-radius: 25px;
+    padding: 30px;
+
+    background-color: rgba(255, 255, 255, 0.96);
+
+    box-shadow:
+        0 0 0 8px #111111,
+        0 0 0 12px #8b0000,
+        0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+
+/* Red decorative line */
+
+.app::before {
+    content: "";
+    display: block;
+
+    width: 80%;
+    height: 8px;
+
+    margin: 0 auto 25px auto;
+
+    background-color: #8b0000;
+
+    border-radius: 50%;
+}
+
+
+/* Māori-inspired red headings */
+
+h1 {
+    color: #8b0000;
+}
+
+h2 {
+    color: #8b0000;
+}
+
+
+/* Red progress bar */
+
+.progress {
+    background-color: #8b0000;
+}
+
+
+/* Red buttons */
+
+button {
+    border-color: #8b0000;
+}
+
+button:hover {
+    background-color: #8b0000;
+}
+
+
+/* Red accent on lesson cards */
+
+.word-card {
+    border-left: 8px solid #8b0000;
+}
