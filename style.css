@@ -1,7 +1,18 @@
 body {
     font-family: Arial, sans-serif;
     text-align: center;
-    background-color: #eef7f0;
+    background-color: #111111;
+    background-image:
+        linear-gradient(45deg, #8b0000 25%, transparent 25%),
+        linear-gradient(-45deg, #8b0000 25%, transparent 25%),
+        linear-gradient(45deg, transparent 75%, #8b0000 75%),
+        linear-gradient(-45deg, transparent 75%, #8b0000 75%);
+    background-size: 40px 40px;
+    background-position:
+        0 0,
+        0 20px,
+        20px -20px,
+        -20px 0px;
     padding: 40px 20px;
     margin: 0;
 }
@@ -14,10 +25,11 @@ body {
 h1 {
     font-size: 45px;
     margin-bottom: 10px;
+    color: white;
 }
 
 h2 {
-    color: #245c3a;
+    color: #8b0000;
 }
 
 p {
@@ -26,7 +38,7 @@ p {
 
 .subtitle {
     margin-bottom: 35px;
-    color: #555;
+    color: #333333;
 }
 
 .progress-box {
@@ -34,13 +46,13 @@ p {
     margin-bottom: 35px;
     border-radius: 20px;
     background-color: white;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
 .progress-bar {
     width: 100%;
     height: 22px;
-    background-color: #ddd;
+    background-color: #dddddd;
     border-radius: 15px;
     overflow: hidden;
 }
@@ -48,25 +60,32 @@ p {
 .progress {
     width: 0%;
     height: 100%;
-    background-color: #4caf50;
+    background-color: #8b0000;
     border-radius: 15px;
 }
 
 button {
     font-size: 18px;
     padding: 15px 25px;
-    border: none;
+    border: 3px solid #8b0000;
     border-radius: 12px;
     cursor: pointer;
-    background-color: #ffffff;
-    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.12);
+    background-color: #111111;
+    color: white;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
     margin: 5px;
     transition: 0.2s;
 }
 
 button:hover {
     transform: scale(1.05);
-    background-color: #e4f3e7;
+    background-color: #8b0000;
+}
+
+button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
 }
 
 .word-card {
@@ -74,7 +93,8 @@ button:hover {
     padding: 20px;
     margin: 20px 0;
     border-radius: 18px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    border-left: 8px solid #8b0000;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
 .word-card h2 {
@@ -83,5 +103,5 @@ button:hover {
 }
 
 .word-card p {
-    color: #555;
+    color: #333333;
 }
